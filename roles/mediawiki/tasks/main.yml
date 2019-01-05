@@ -14,13 +14,15 @@
 - name: Download MediaWiki
   get_url:
     url: "http://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz"
-    dest: /home/wiki/
+    dest: /home/wiki/mediawiki.tgz
     owner: wiki
     group: wiki
+    mode: 0744
 
 - name: Unarchive MediaWiki
   unarchive:
-    src: /home/wiki/mediawiki-1.31.1.tar.gz
+    remote_src: yes
+    src: /home/wiki/mediawiki.tgz
     dest: /home/wiki/
     owner: wiki
     group: wiki
