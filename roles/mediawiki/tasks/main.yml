@@ -2,6 +2,7 @@
 - name: Install dependencies
   yum: name={{ item }} state=present
   with_items:
+    - python
     - httpd
     - php
     - php-mysql
@@ -10,3 +11,14 @@
     - mysql-server
     - mysql
     - wget
+- name: Download MediaWiki
+  get_url:
+    url: http://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz
+    dest: /home/"{{ wiki.user }}"/mediawiki.tgz
+
+- name: Unarchive MediaWiki
+  unarchive:
+    src: /home/"{{ wiki.user }}"/mediawiki.tgz
+    dest: /home/"{{ wiki.user }}"/
+    owner: "{{ wiki.user }}"
+    group: "{{ wiki.user }}"
