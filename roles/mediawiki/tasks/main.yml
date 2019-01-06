@@ -22,10 +22,13 @@
 - name: Unarchive MediaWiki
   unarchive:
     src: /tmp/mediawiki.tgz
-    dest: "{{ wiki.install_dir }}"
+    dest: /tmp/
     remote_src: yes
     owner: "{{ wiki.user }}"
     group: "{{ wiki.user }}"
+    
+- name: Moving MediaWiki to web directory
+  command: creates={{ wiki.install_dir }} mv /tmp/{{ filename }}/ {{ wiki.install_dir }}
     
 - name: Create symbolic link 
   file:
