@@ -2,4 +2,4 @@ download_url: http://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.
 filename: mediawiki-1.31.1
 wiki:
   user: apache
-  install_dir: /var/wwww
+  install_dir: /var/www
