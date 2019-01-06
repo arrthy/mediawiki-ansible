@@ -53,7 +53,7 @@
       </Directory>
       DirectoryIndex index.html index.html.var index.php
   notify:
-    - restart apache
+    - restart httpd
       
 - name: Correcting selinux configuration
   command: "{{ item }}"
