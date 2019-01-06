@@ -29,6 +29,6 @@
     
 - name: Create symbolic link 
   file:
-    src: "{{ wiki.install_dir }}"/"{{ filename }}"
+    src: "{{ wiki.install_dir }}/{{ filename }}"
     dest: "{{ wiki.install_dir }}"/mediawiki
     state: link
