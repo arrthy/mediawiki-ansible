@@ -4,3 +4,6 @@ mediawiki-server-1b
 
 [mysql_server]
 mysql-server
+
+[lb_server]
+mediawiki-server-1a

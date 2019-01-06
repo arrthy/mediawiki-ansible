@@ -9,3 +9,7 @@
   roles:
     - mysql
 
+- hosts: lb_server
+  sudo: yes
+  roles:
+    - loadbalancing
