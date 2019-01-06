@@ -1,0 +1,6 @@
+mysql:
+    db: wikidatabase
+    user: wiki
+    password: "{{ vault_sqlpwd }}"
+    privileges: '*.*:ALL'
+    host: '%'

@@ -7,5 +7,12 @@
     - php-mysql
     - mysql-server
     - mysql
-  notify:
-    - start mysqld
+
+- name: run MySQL
+  service: name=mysqld state=started enabled=yes
+
+- name: create db user
+  mysql_user: name={{ mysql.user }} password={{ password }} priv={{ mysql.privileges }} host={{ mysql.host }} state=present
+
+- name: create mysql database
+  mysql_db: name={{ mysql.db }} state=present
