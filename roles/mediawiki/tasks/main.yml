@@ -21,8 +21,8 @@
 
 - name: Unarchive MediaWiki
   unarchive:
-    remote_src: yes
     src: /home/wiki/mediawiki.tgz
     dest: /home/wiki/
+    remote_src: yes
     owner: wiki
     group: wiki
