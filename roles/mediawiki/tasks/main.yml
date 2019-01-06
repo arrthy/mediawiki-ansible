@@ -52,6 +52,8 @@
          AllowOverride None
       </Directory>
       DirectoryIndex index.html index.html.var index.php
+    notify:
+      - restart apache
       
 - name: Correcting selinux configuration
   command: "{{ item }}"
