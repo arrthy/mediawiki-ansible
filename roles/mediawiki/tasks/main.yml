@@ -28,7 +28,7 @@
     group: "{{ wiki.user }}"
     
 - name: Moving MediaWiki to web directory
-  command: creates={{ wiki.install_dir }}/{{ filename }} cp /tmp/{{ filename }}/ {{ wiki.install_dir }}
+  command: creates={{ wiki.install_dir }}/{{ filename }} mv /tmp/{{ filename }}/ {{ wiki.install_dir }}
     
 - name: Create symbolic link 
   file:
