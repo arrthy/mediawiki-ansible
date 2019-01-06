@@ -3,3 +3,9 @@
   sudo: yes
   roles:
     - mediawiki
+
+- hosts: mysql_server
+  sudo: yes
+  roles:
+    - mysql
+
