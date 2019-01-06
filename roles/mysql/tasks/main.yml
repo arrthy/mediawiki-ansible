@@ -1,0 +1,11 @@
+--
+- name: Install pacages and dependencies
+  yum: name={{ item }} state=present
+  with_items:
+    - python
+    - php
+    - php-mysql
+    - mysql-server
+    - mysql
+  notify:
+    - start mysqld
