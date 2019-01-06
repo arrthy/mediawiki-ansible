@@ -13,16 +13,22 @@
     - wget
 - name: Download MediaWiki
   get_url:
-    url: "http://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz"
-    dest: /home/wiki/mediawiki.tgz
-    owner: wiki
-    group: wiki
+    url: "{{ download_url }}"
+    dest: /tmp/mediawiki.tgz
+    owner: "{{ wiki.user }}"
+    group: "{{ wiki.user }}"
     mode: 0744
 
 - name: Unarchive MediaWiki
   unarchive:
-    src: /home/wiki/mediawiki.tgz
-    dest: /home/wiki/
+    src: /tmp/mediawiki.tgz
+    dest: "{{ wiki.install_dir }}"
     remote_src: yes
-    owner: wiki
-    group: wiki
+    owner: "{{ wiki.user }}"
+    group: "{{ wiki.user }}"
+    
+- name: Create symbolic link 
+  file:
+    src: "{{ wiki.install_dir }}"/"{{ filename }}"
+    dest: "{{ wiki.install_dir }}"/mediawiki
+    state: link
