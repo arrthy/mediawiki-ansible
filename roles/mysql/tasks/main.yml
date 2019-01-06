@@ -14,7 +14,7 @@
   service: name=mysqld state=started enabled=yes
 
 - name: create db user
-  mysql_user: name={{ mysql.user }} password={{ mysql.password }} host={{ mysql.host }} state=present priv={{ mysql.privileges }}
+  mysql_user: name={{ mysql.user }} password={{ mysql.password }}  priv='*.*:ALL' host={{ mysql.host }} state=present
 
 - name: create mysql database
   mysql_db: name={{ mysql.db }} state=present
