@@ -3,3 +3,9 @@ filename: mediawiki-1.31.1
 wiki:
   user: apache
   install_dir: /var/www
+  db:
+    type: mysql
+    server: mysql-server
+    name: wiki
+    user: wiki
+    password: "{{ vault_sqlpwd }}"
