@@ -53,8 +53,8 @@
       </Directory>
       DirectoryIndex index.html index.html.var index.php
       
- - name: Correcting selinux configuration
-   command: "{{ item }}"
-   with_items:
-     - restorecon -FR /var/www/mediawiki-1.31.1/
-     - restorecon -FR /var/www/mediawiki
+- name: Correcting selinux configuration
+  command: "{{ item }}"
+  with_items:
+    - restorecon -FR /var/www/mediawiki-1.31.1/
+    - restorecon -FR /var/www/mediawiki
