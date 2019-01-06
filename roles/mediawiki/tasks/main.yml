@@ -1,4 +1,5 @@
 ---
+- include_vars: vault.yml
 - name: Install dependencies
   yum: name={{ item }} state=present
   with_items:
@@ -54,6 +55,14 @@
       DirectoryIndex index.html index.html.var index.php
   notify:
     - restart httpd
+
+- name: Configuring MediaWiki
+  template:
+    src: LocalSettings.php.j2
+    dest: "{{ wiki.install_dir }}/LocalSettings.php"
+    owner: "{{ wiki.user }}"
+    group: "{{ wiki.user }}"
+    mode: 0644
       
 - name: Correcting selinux configuration
   command: "{{ item }}"
