@@ -40,6 +40,7 @@
   copy:
     src: /etc/httpd/conf/httpd.conf
     dest: /etc/httpd/conf/httpd.conf.bkp
+    remote_src: yes
     
 - name: Insert/update configuration block in /etc/httpd/conf/httpd.conf
   blockinfile:
